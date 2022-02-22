@@ -19,6 +19,8 @@ let countdownValue = Date;
 
 let countdownActive;
 
+let savedCountdown;
+
 const second = 1000;
 const minute = second * 60;
 const hour = minute * 60;
@@ -34,14 +36,11 @@ function updateDOM() {
 	countdownActive = setInterval(() => {
 		const now = new Date().getTime();
 		const distance = countdownValue - now;
-		console.log('distance: ', distance);
-
 
 		const days = Math.floor(distance / day);
 		const hours = Math.floor((distance % day) / hour);
 		const minutes = Math.floor((distance % hour) / minute);
 		const seconds = Math.floor((distance % minute) / second);
-		console.log(`days: ${days}, hours: ${hours}, minutes: ${minutes}`);
 
 		//Hide Input Container
 		inputContainer.hidden = true;
@@ -75,13 +74,19 @@ function updateCountDown(e) {
 	countdownTitle = e.srcElement[0].value;
 	countdownDate = e.srcElement[1].value;
 
+	savedCountdown = {
+		title: countdownTitle,
+		date: countdownDate,
+	};
+
+	localStorage.setItem('countdown', JSON.stringify(savedCountdown));
+
 	//Check for valid date
 	if(countdownDate === '') {
 		alert('Please select a date for the countdown.')
 	} else {
 		//Get number version of current date
 		countdownValue = new Date(countdownDate).getTime();
-		console.log('countdown value: ', countdownValue);
 		updateDOM();
 	}
 }
@@ -99,9 +104,25 @@ function reset() {
 	//Reset values
 	countdownTitle = '';
 	countdownDate = '';
+	localStorage.removeItem('countdown');
+}
+
+function restorPreviousCountdown() {
+	//Get countdown from localStorage
+	if(localStorage.getItem('countdown')) {
+		inputContainer.hidden = true;
+		savedCountdown = JSON.parse(localStorage.getItem('countdown'));
+		countdownTitle = savedCountdown.title;
+		countdownDate = savedCountdown.date;
+		countdownValue = new Date(countdownDate).getTime();
+		updateDOM();
+	}
 }
 
 //Event Listener
 countdownForm.addEventListener('submit', updateCountDown);
 countdownBtn.addEventListener('click', reset);
 completeBtn.addEventListener('click', reset);
+
+//On Load, Check LocalStorage
+restorPreviousCountdown();
