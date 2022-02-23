@@ -1,12 +1,10 @@
 # Custom Countdown Timer
 
-#### Bankist App, 23rd Feb 2022
+#### Custom Countdown Timer, 24rd Feb 2022
 
 #### By Wilson Mwangeka
 
 ## Description
-
-Bankist App is a fictional banking application that is made with HTML, CSS & JS. So the Bankist app emulates the functions of a banking application where you can view your balance, apply for a loan, transfer money and close an account, you can also view money in and money out and also you are also able to view your interest accrued, there is also a sort feature where you can sort your transactions in descending order. There is also a timer at the bottom of the page that after 5 minutes of inactivity logs the user out.
 
 This custom countdown timer is made with HTML, CSS & JS. The countdown timer lets you put the title of the event that you want to countdown and the date. After that you are able to see the countdown in days, hours, minutes and seconds. I also used the localStorage API to ensure incase you have visited the site before and logged an event and the event isn't yet done counting down, its fetched from the localStorage API.
 
