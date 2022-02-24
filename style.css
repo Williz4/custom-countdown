@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Roboto+Serif&display=swap');
 
 html {
   box-sizing: border-box;
@@ -10,7 +10,8 @@ body {
   overflow-y: hidden;
   display: flex;
   align-items: center;
-
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
 }
 
 /* Video Background */
@@ -62,6 +63,7 @@ h1 {
   text-align: center;
   margin-top: 0;
   margin-bottom: 10px;
+  font-family: 'Cormorant Garamond', sans-serif;
 }
 
 /* Form */
@@ -82,7 +84,7 @@ input {
   border-radius: 20px;
   background: #fff;
   outline: none;
-  /*font-family: ;*/
+  font-family: 'Cormorant Garamond', sans-serif;
 }
 
 /* Button */
