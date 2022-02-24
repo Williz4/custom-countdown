@@ -9,7 +9,7 @@
 This custom countdown timer is made with HTML, CSS & JS. The countdown timer lets you put the title of the event that you want to countdown and the date. After that you are able to see the countdown in days, hours, minutes and seconds. I also used the localStorage API to ensure incase you have visited the site before and logged an event and the event isn't yet done counting down, its fetched from the localStorage API.
 
 ## How To Interact with the Application
-* The site is located at the url 
+* The site is located at the url https://williz4.github.io/custom-countdown/
 
 ![Index Page](images/1.PNG)
 
